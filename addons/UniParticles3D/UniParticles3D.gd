@@ -185,7 +185,7 @@ var start_lifetime: float:
 		match start_lifetime_mode:
 			0: return start_lifetime_constant
 			1: return lerp(start_lifetime_random.x,start_lifetime_random.y,randf())
-			_: return start_lifetime_curve.evaluate(randf()) if start_lifetime_curve != null else start_lifetime_constant
+			_: return start_lifetime_curve.sample_baked(randf()) if start_lifetime_curve != null else start_lifetime_constant
 ## Initial lifetime of particles in seconds
 # @@ Starting Lifetime (start_lifetime_constant,start_lifetime_random,start_lifetime_curve)
 @export var start_lifetime_mode: int = 0  # 0=constant, 1=random, 2=curve
